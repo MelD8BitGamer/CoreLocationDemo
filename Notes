@@ -1,0 +1,48 @@
+Core Location
+
+Core location is the backend of your mapkit ui
+Compass heading gps information, similar to filemanager
+Core location ask the user for the location use
+Mapkit uses coordinates and uses Core location
+ ask the user for current location
+The user gives me updates via delegate
+Annotations are those red pins on the map
+You populate the map with annotations
+We need to import core location its like file manager its the gateway to services
+We should have 1 strong instance of the location manager
+CLLocation manager like tableview
+And a CLManager updates the didUpdateDelegate
+Core Location can be very power instances so it may use up the battery because it has to be in real time location
+The more updates from core location the less battery you have
+resources
+https://developer.apple.com/documentation/corelocation/
+https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
+
+The Delegate for this
+any time the user uses the app this method gets call didChangeAuthorization
+look at resources //MARK 12:49
+
+we want to have both because of security measure and it will prone the user again to use the location services. we need to add the keys to the  info.Plist
+  //The following keys need to be added to the info p.list file from your console(or at least that is what your console ask of you)
+  * NSLocationWhenInUseUsageDescription
+  * NSLocationAlwaysAndWhenInUseUsageDescription
+Compiler says CoreLocationDemo[22424:1643975] This app has attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an “NSLocationWhenInUseUsageDescription” key with a string value explaining to the user how the app uses this data
+CoreLocationDemo[22424:1643975] This app has attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain both “NSLocationAlwaysAndWhenInUseUsageDescription” and “NSLocationWhenInUseUsageDescription” keys with string values explaining to the user how the app uses this
+HOW TO DO THIS IN PLIST
+like the camera app
+so copy the first one and click on the + sign on info property list
+and do the same for the second
+you need to give it a description in the value section
+in this case we said "We must have your location" (maybe need to be nicer)
+
+resources
+https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names
+
+geocoding
+convert the coordinates in the placeName if it is avaialble from the API it will come up if not you will get a address
+
+first we convert a coordinate into a place mark, areas of intrest names etc
+we will convert the placemark into a coordinate look at the document 
+
+
+if you use annotation you want to remove them when you are done so you must clear up the map before the next annotation so you go to the method clearupAnnotations
